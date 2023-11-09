@@ -4,13 +4,15 @@ import styled from 'styled-components'
 const Home = () => {
   return (
     <>
-      {/* <Wrapper className='test'>Home Pages</Wrapper> */}
+      <Wrapper className='test'>Home Pages</Wrapper>
     </>
   )
 };
 
 const Wrapper = styled.section `
   background-color:${({theme})=> theme.colors.bg};
+  height:100vh;
+
 `;
 
 export default Home

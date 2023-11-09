@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 import styled from "styled-components";
+import {CgMenu,CgClose} from "react-icons/cg";
+
 
 const Navbar = () => {
+
+    const [menuicon,setmenuicon]= useState();
+
   const Nav = styled.nav`
     .navbar-lists {
       display: flex;
       gap: 4.8rem;
       align-items: center;
-      padding-right:50px;
+   
 
       .navbar-link {
         &:link,
@@ -58,8 +63,8 @@ const Navbar = () => {
         border-radius: 50%;
         display: grid;
         place-items: center;
-        top: -20%;
-        left: 70%;
+        top: -45%;
+        left: 55%;
         background-color: ${({ theme }) => theme.colors.helper};
       }
     }
@@ -92,7 +97,7 @@ const Navbar = () => {
         color: ${({ theme }) => theme.colors.black};
         z-index: 9999;
       }
-      .active .clone-outline {
+      .active .close-outline {
         display: inline-block;
       }
       .navbar-lists {
@@ -128,6 +133,8 @@ const Navbar = () => {
       .cart-trolley--link {
         position: relative;
 
+      }
+
         .cart-trolley {
           position: relative;
           font-size: 5.2rem;
@@ -150,47 +157,58 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <div className="navbar">
+      <div className={menuicon ? "navbar active" : "navbar"}>
         <ul className="navbar-lists">
 
 
           <li>
-            <NavLink to="/" className="navbar-link home-link">
+            <NavLink to="/" className="navbar-link home-link" onClick={()=>setmenuicon(false)}>
               Home
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/about" className="navbar-link ">
+            <NavLink to="/about" className="navbar-link " onClick={()=>setmenuicon(false)}>
               About
             </NavLink>
           </li>
 
 
           <li>
-            <NavLink to="/products" className="navbar-link ">
+            <NavLink to="/products" className="navbar-link " onClick={()=>setmenuicon(false)}>
               Products
             </NavLink>
           </li>
 
 
           <li>
-            <NavLink to="/contact" className="navbar-link ">
+            <NavLink to="/contact" className="navbar-link " onClick={()=>setmenuicon(false)}>
               Contact
             </NavLink>
           </li>
 
           <li>
             
-            <NavLink to="/cart" className="navbar-link">
-                <BsCart3 className="cart-trolley"/>
+            <NavLink to="/cart" className="navbar-link cart-trolley--link">
+        <BsCart3 className="cart-trolley"/>
+    <span className="cart-total--item">10</span>
+
             </NavLink>
             </li>
-
-
-         
         </ul>
-      </div>
+        
+
+        <div className="mobile-navbar-btn">
+        <CgMenu className="mobile-nav-icon" name="menu-outline" onClick={()=>setmenuicon(true)}/>
+
+        <CgClose className="mobile-nav-icon      close-outline" name="close outline"
+         onClick={()=>setmenuicon(false)}
+        />
+
+        </div>
+        </div>
+    
+         
     </Nav>
   );
 };
