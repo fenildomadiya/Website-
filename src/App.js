@@ -7,16 +7,28 @@ import Contact from "./Contact";
 import SingleProduct from "./SingleProduct";
 import Cart from "./Cart"
 import Error from "./Error";
+import { GlobalStyle } from "./GlobalStyle";
+import { ThemeProvider } from "styled-components";
  
 const App = () => {
+
+const theme = {
+  colors:
+  {
+    bg:"#000"
+  },
+};
+
   return (
     <>
+    <ThemeProvider theme={theme}>
     <BrowserRouter> 
-
+<GlobalStyle/>
       <Routes>
 
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/about" element={<About/>}></Route>
+  <Route path="/" element={<Home/>}>Home</Route>
+
+  <Route path="/about" element={<About/>}></Route>
 
   <Route path="/products" element={<Products/>}></Route>
 
@@ -30,10 +42,11 @@ const App = () => {
 
 
 
-
       </Routes>
 
     </BrowserRouter>
+    </ThemeProvider>
+
     </>
   )
 };
