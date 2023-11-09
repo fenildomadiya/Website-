@@ -16,6 +16,8 @@ const theme = {
   colors:
   {
     bg:"#000"
+
+    
   },
 };
 
