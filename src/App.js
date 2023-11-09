@@ -6,11 +6,12 @@ import Products from "./Products";
 import Contact from "./Contact";
 import SingleProduct from "./SingleProduct";
 import Cart from "./Cart"
+import Error from "./Error";
  
 const App = () => {
   return (
     <>
-    <BrowserRouter>
+    <BrowserRouter> 
 
       <Routes>
 
@@ -24,6 +25,9 @@ const App = () => {
 <Route path="/singleproduct/:id" element={<SingleProduct/>}></Route>
 
 <Route path="/cart" element={<Cart/>}></Route>
+
+<Route path="/*" element={<Error/>}></Route>
+
 
 
 
