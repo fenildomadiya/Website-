@@ -1,22 +1,19 @@
-import React from 'react'
-import HeroSection from './Components/HeroSection';
-import Trusted from './Components/Trusted';
-import Services from './Components/Services';
-import Footer from './Components/Footer';
+import HeroSection from "./Components/HeroSection";
+import Services from "./Components/Services.jsx"
+import Trusted from "./Components/Trusted.jsx"
 
 const Home = () => {
   const data = {
-    name:"Feynill Store"
-  }
+    name: "Feynill store",
+  };
+
   return (
     <>
-     <HeroSection mydata={data}/>
-     <Services/>
-     <Trusted/>
-
+      <HeroSection mydata={data} />
+      <Services />
+      <Trusted />
     </>
-  )
+  );
 };
 
-
-export default Home
+export default Home;

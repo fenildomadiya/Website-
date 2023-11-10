@@ -1,11 +1,18 @@
-import React from 'react'
+import { createContext, useContext } from "react";
 
-const Product = () => {
+const AppContext = createContext();
+
+const AppProvider = ({ children }) => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <AppContext.Provider value={{ myName: "vinod thapa" }}>
+      {children}
+    </AppContext.Provider>
+  );
+};
 
-export default Product
+// custom hooks
+const useProductContext = () => {
+  return useContext(AppContext);
+};
+
+export { AppProvider, AppContext, useProductContext };
